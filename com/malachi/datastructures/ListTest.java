@@ -2,8 +2,8 @@
 
 public class ListTest {
 public static void main(String[] args) {
-    CustomList<Integer> list = new CustomList<>("linked-list");
-
+    CustomList<Integer> list = new CustomList<>();
+    System.out.printf("%nINSERTING AT THE FRONT:%n");
     list.insertAtFront(1);
     list.print();
 
@@ -19,10 +19,26 @@ public static void main(String[] args) {
     list.insertAtFront(5);
     list.print();
 
-    list.removeFromBack();
+    System.out.printf("%nINSERTING AT THE BACK:%n");
 
+    list = new CustomList<>();
+
+    list.insertAtBack(1);
     list.print();
 
+    list.insertAtBack(2);
+    list.print();
+
+    list.insertAtBack(3);
+    list.print();
+
+    list.insertAtBack(4);
+    list.print();
+
+    list.insertAtBack(5);
+    list.print();
+  
+   
    
 }    
 }

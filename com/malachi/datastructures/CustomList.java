@@ -54,7 +54,6 @@ public class CustomList<T> {
     }
 
     public void insertAtBack(T insertItem){
-        System.out.println("item to be inserted: " + insertItem);
         if(isEmpty()){
             firstnode = lastnode = new ListNode<>(insertItem); //firtnode and lastnode refer to the same object.
         }else{
@@ -62,7 +61,7 @@ public class CustomList<T> {
         }
     }
 
-    public T removeFromFront(){
+    public T removeFromFront() throws EmptyListException{
         if(isEmpty()) throw new EmptyListException(name);
 
         T removedItem = firstnode.data; //retrieve the data to be removed.
@@ -76,7 +75,7 @@ public class CustomList<T> {
        return removedItem;
     }
 
-    public T removeFromBack(){
+    public T removeFromBack() throws EmptyListException{
         if(isEmpty())throw new EmptyListException(name);
         
         T removedItem = lastnode.data;
@@ -106,10 +105,13 @@ public class CustomList<T> {
         
         ListNode<T> currentNode = firstnode;
         System.out.printf("This %s is: ", name);
+        StringBuilder result = new StringBuilder();
+
         while(currentNode != null){
-            System.out.printf("%s ", currentNode.data);
+            result.append(currentNode.data).append(" -> ");
             currentNode = currentNode.nextNode;
         }
-        System.out.println();
+        result.append("null");
+        System.out.println(result);
     }
 }

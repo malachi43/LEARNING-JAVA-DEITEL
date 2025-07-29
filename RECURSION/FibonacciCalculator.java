@@ -21,7 +21,7 @@ public class FibonacciCalculator {
     }
 
     public static void main(String[] args) {
-        for (int counter = 0; counter <= 200; counter++) {
+        for (int counter = 0; counter <= 41; counter++) {
             System.out.printf("Fibonacci of %d is = %d%n", counter, fibonacci(BigInteger.valueOf(counter)));
         }
     }

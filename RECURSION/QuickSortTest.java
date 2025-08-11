@@ -5,7 +5,6 @@ public class QuickSortTest {
     public static void main(String[] args) {
         List<Integer> numArray = new ArrayList<>(List.of(9,8,7,250,6,5,4,356,76,3,2,1,0,100));
         System.out.println("array sorted using quicksort: " + quicksort(numArray));
-        System.out.println("array sorted using quicksort2: " + quicksort2(numArray));        
     }
 
     public static Integer sum(List<Integer> numArray) {
@@ -45,37 +44,5 @@ public class QuickSortTest {
         quicksort(numArray.subList(0, partitionIndex));
         quicksort(numArray.subList(partitionIndex + 1, numArray.size()));
         return numArray;
-    }
-
-    //This solution is more straight forward.
-    public static List<Integer> quicksort2(List<Integer> numArray){
-        if(numArray.size() < 2) return numArray;
-        int pivotIndex = 0;
-        int pivot = numArray.get(pivotIndex);
-        List<Integer> less = addLessValue(numArray, pivot);
-        List<Integer> greater = addGreaterValue(numArray, pivot);
-        quicksort(less);
-        quicksort(greater);
-        return numArray;
-    }
-
-    public static List<Integer> addLessValue(List<Integer> numArray, int testNum){
-        List<Integer> lessArray =  new ArrayList<>();
-        for(Integer item : numArray){
-            if(item <= testNum){
-                lessArray.add(item);
-            }
-        }
-        return lessArray;
-    }
-
-    public static List<Integer> addGreaterValue(List<Integer> numArray, int testNum){
-        List<Integer> greaterArray =  new ArrayList<>();
-        for(Integer item : numArray){
-            if(item > testNum){
-                greaterArray.add(item);
-            }
-        }
-        return greaterArray;
     }
 }
